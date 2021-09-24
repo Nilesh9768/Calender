@@ -1,0 +1,33 @@
+.calender-body{
+
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.cell{
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+    color: rgb(75, 74, 74);
+    text-align: center;
+}
+
+.disabled{
+    font-weight: 700;
+    color: rgb(219, 217, 217);
+    padding: 10px;
+}
+
+
+.current-date{
+    color: #fff;
+    background-color: #d9d9d9;
+    border-radius: 3px;
+}
+
+.selected{
+    color: #fff;
+    background-color: rgb(51, 51, 255);
+    border-radius: 3px;
+}
+

@@ -1,0 +1,101 @@
+
+.event-time-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    border-left: 2px grey solid;
+    border-right: 2px grey solid;
+    padding: 0 10px;
+    height: 100%;
+    position: relative;
+}
+
+.event-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-left: 2px grey solid;
+    border-right: 2px grey solid;
+    padding: 0 10px;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+.due-date{
+    background-color: #fff0b3;
+}
+
+.content-publish{
+    background-color: #ffb3b3;
+}
+
+.release{
+    background-color: #ecf8ec;
+}
+.due-date,.content-publish,.release{
+    text-align: left;
+    margin: 3px auto;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 150px;
+    overflow: auto;
+}
+.card-element{
+
+    margin-top: 5px;
+}
+.time{
+    font-weight: 700;
+    color: grey;
+}
+.due-date-container,.content-publish-container,.release-container{
+
+    border: 1px solid yellow;
+    position: relative;
+    
+}
+
+.timeList-container{
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 98vh;
+    z-index: 10;
+    
+}
+
+
+.time-item{
+    font-size: 11px;
+    color:grey;
+    font-weight: 600;
+    margin-bottom: 50px;
+    position: relative;
+    text-align: left;
+}
+
+.time-item::after{
+    content: '';
+    background: rgba(240, 240, 240);
+    box-shadow: 0.2px 0.1px 0.2px rgb(236, 235, 235);
+    display: block;
+    height: 0.7px;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 8%;
+}
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background-color: rgb(255 255 255 / 40%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgb(187, 187, 187);
+  }

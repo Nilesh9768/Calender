@@ -1,0 +1,14 @@
+
+.days-container{
+
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+.day{
+
+    /* background-color: orange; */
+    padding: 10px 0;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    text-align: center;
+}

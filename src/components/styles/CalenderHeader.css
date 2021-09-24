@@ -1,0 +1,19 @@
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.month-year{
+    display: flex;
+}
+
+.month-year p,icons{
+    margin: 0;
+    padding: 2px;
+    color: rgb(75, 74, 74);
+    font-weight: 700;
+}
+
