@@ -1,10 +1,35 @@
-.App{
+
+.app{
 
     display: grid;
     grid-template-columns: 1fr 2fr 0.667fr;
-    align-items: center;
     text-align: center;
-    height: 100vh;
-    border: 4px solid red;
+    
 }
 
+.app-header{
+
+   background-color: #fff;
+   border-bottom: 0.001px solid rgb(240, 237, 237);
+   padding: 10px 5px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 20;
+   box-shadow: 0 2px 5px 3px rgb(250, 250, 250);
+}
+.month-date-container{
+    padding: 24px 0  14px 29.5%;
+    position: fixed;
+    z-index: 20;
+    margin-top: 30px;
+}
+.month-date,.weekday{
+
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(75, 74, 74);
+}
+.weekday{
+    color: rgb(187, 187, 187);
+}

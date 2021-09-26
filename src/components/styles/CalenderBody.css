@@ -31,3 +31,29 @@
     border-radius: 3px;
 }
 
+.indicator-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.due-indicator{
+    
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #f5dc7a;;
+}
+.content-indicator{
+    
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ff8484;
+}
+.release-indicator{
+    
+    width:7px;
+    height:7px;
+    border-radius: 50%;
+    background-color: #91f891;
+}

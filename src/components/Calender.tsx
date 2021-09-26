@@ -12,18 +12,17 @@ import {
 } from "date-fns"
 import './styles/Calender.css'
 
-export type filterEventsProps = {
+export type CalenderProps = {
 
-    filterEvents:(date:Date) => void
-
+    filterEvents: (date: Date) => void
 }
-export default function Calender({filterEvents} : filterEventsProps) {
+export default function Calender({ filterEvents, }: CalenderProps) {
 
     const [month, setMonth] = useState<Date>(new Date())
     const [year, setYear] = useState(new Date())
 
     const decreaseMonth = () => {
-        
+
         const currMonth: string = format(month, 'MMMM');
         if (currMonth === 'January') {
             setYear(subYears(year, 1))

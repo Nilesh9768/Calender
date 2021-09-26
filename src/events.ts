@@ -1,4 +1,4 @@
-
+import {addDays} from 'date-fns'
 type eventsType = {
     id:number,
     entry:string,
@@ -13,7 +13,7 @@ const eventsArray: eventsType[] = [
         entry: 'Artificial Intelligence',
         moveTo: 'Publish',
         category: 'due-date',
-        date: new Date('2021-09-20T09:00:00'),
+        date: addDays(new Date().setHours(9,0,0),0),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -21,15 +21,15 @@ const eventsArray: eventsType[] = [
         entry: 'ML',
         moveTo: 'Publish',
         category: 'content-publish',
-        date: new Date('2021-09-21T12:00:00'),
+        date: addDays(new Date().setHours(9,30,0),0),
         assignedBy:'Nilesh Yadav'
     },
     {
         id:3,
         entry: 'DL',
         moveTo: 'Publish',
-        category: 'due-date',
-        date: new Date('2021-09-23T10:00:00'),
+        category: 'content-publish',
+        date: addDays(new Date().setHours(10,0,0),0),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -37,7 +37,7 @@ const eventsArray: eventsType[] = [
         entry: 'ML & DL',
         moveTo: 'Publish',
         category: 'release',
-        date: new Date('2021-09-24T12:00:00'),
+        date: addDays(new Date().setHours(12,0,0),0),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -45,7 +45,7 @@ const eventsArray: eventsType[] = [
         entry: 'DSA',
         moveTo: 'Publish',
         category: 'release',
-        date: new Date('2021-09-20T09:00:00'),
+        date: addDays(new Date().setHours(11,0,0),1),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -53,7 +53,7 @@ const eventsArray: eventsType[] = [
         entry: 'ML',
         moveTo: 'Publish',
         category: 'content-publish',
-        date: new Date('2021-09-21T12:00:00'),
+        date: addDays(new Date().setHours(14,0,0),1),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -61,7 +61,7 @@ const eventsArray: eventsType[] = [
         entry: 'DL',
         moveTo: 'Publish',
         category: 'due-date',
-        date: new Date('2021-09-23T11:00:00'),
+        date: addDays(new Date().setHours(10,0,0),2),
         assignedBy:'Nilesh Yadav'
     },
     {
@@ -69,7 +69,22 @@ const eventsArray: eventsType[] = [
         entry: 'ML & DL',
         moveTo: 'Publish',
         category: 'release',
-        date: new Date('2021-09-24T10:00:00'),
+        date: addDays(new Date().setHours(11,30,0),3),
+        assignedBy:'Nilesh Yadav'
+    },{
+        id:9,
+        entry: 'DL',
+        moveTo: 'Publish',
+        category: 'due-date',
+        date: addDays(new Date().setHours(15,0,0),3),
+        assignedBy:'Nilesh Yadav'
+    },
+    {
+        id:10,
+        entry: 'ML & DL',
+        moveTo: 'Publish',
+        category: 'release',
+        date: addDays(new Date().setHours(13,0,0),4),
         assignedBy:'Nilesh Yadav'
     }
 ]

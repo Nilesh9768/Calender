@@ -1,14 +1,56 @@
-import { ReactNode, useState} from 'react'
-import { format, isEqual, isSameDay, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays } from 'date-fns'
+import { ReactNode, useState } from 'react'
+import { format, isEqual, isSameDay, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth } from 'date-fns'
 import './styles/CalenderBody.css'
+import { eventsArray } from '../events'
 
 type BodyProps = {
     month: Date,
     year: Date,
-    filterEvents:(date:Date) => void
+    filterEvents: (date: Date) => void,
+}
+type objectType = {
+    isDuePresent: boolean,
+    isReleasePresent: boolean,
+    isContentPresent: boolean
+}
+let dateMap = new Map<string, objectType>();
+
+const hasEvent = (date: Date): boolean => {
+
+    for (let i = 0; i < eventsArray.length; i++) {
+        
+        if (isSameDay(date, eventsArray[i].date)) {
+           
+            const category = eventsArray[i].category;
+            const thisDate: string = format(date, 'd/M/yyyy');
+            const isDatePresent = dateMap.has(thisDate)
+            let indicatorObj: objectType | undefined = {
+                'isDuePresent': false,
+                'isReleasePresent': false,
+                'isContentPresent': false
+            };
+            if (isDatePresent) {
+                Object.assign(indicatorObj, dateMap.get(thisDate))
+            }
+            if (indicatorObj !== undefined) {
+                if (category === 'due-date') {
+                    indicatorObj.isDuePresent = true
+                    dateMap.set(thisDate, indicatorObj)
+                } else if (category === 'content-publish') {
+                    indicatorObj.isContentPresent = true
+                    dateMap.set(thisDate, indicatorObj)
+                } else {
+                    indicatorObj.isReleasePresent = true
+                    dateMap.set(thisDate, indicatorObj)
+                }
+            }
+        }
+
+    }
+    return dateMap.has(format(date, 'd/M/yyyy'));
 }
 
-const CalenderBody = ({ month, year,filterEvents }: BodyProps) => {
+const CalenderBody = ({ month, filterEvents }: BodyProps) => {
 
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
@@ -30,12 +72,29 @@ const CalenderBody = ({ month, year,filterEvents }: BodyProps) => {
                     className={currentDateClass}
                     key={i}
                     onClick={() => {
-                        
                         setSelectedDate(date)
                         filterEvents(date)
                     }}
                 >
                     {format(date, "d")}
+                    <div className='indicator-container'>
+                        {
+                            hasEvent(date) ?
+                                dateMap.get(format(date, 'd/M/yyyy'))?.isDuePresent ? <div className='due-indicator'></div> : null
+                                : null
+                        }
+                        {
+                            hasEvent(date) ?
+                                dateMap.get(format(date, 'd/M/yyyy'))?.isContentPresent ? <div className='content-indicator'></div> : null
+                                : null
+                        }
+                        {
+                            hasEvent(date) ?
+                                dateMap.get(format(date, 'd/M/yyyy'))?.isReleasePresent ? <div className='release-indicator'></div> : null
+                                : null
+                        }
+                    </div>
+
                 </div>
             );
             i++;
@@ -64,9 +123,7 @@ const CalenderBody = ({ month, year,filterEvents }: BodyProps) => {
 
     return (
         <div className='calender-body'>
-            {
-                dates
-            }
+            {dates}
         </div>
     )
 }

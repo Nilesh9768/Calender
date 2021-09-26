@@ -12,7 +12,7 @@ type CalenderHeaderProps ={
 const CalenderHeader = ({decreaseMonth,increaseMonth,month,year} : CalenderHeaderProps) => {
 
     return (
-        <div className='header'>
+        <div className='calender-header'>
             <div><FaChevronLeft className='icons' onClick={() => decreaseMonth()} /></div>
             <div className='month-year'>
                 <p>{format(month, 'MMMM')}</p>
