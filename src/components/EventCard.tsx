@@ -5,7 +5,7 @@ type EventCardProps = {
     author: string,
     category: string,
     date: Date,
-    timesMap: Map<string, number>
+    timesMap?: Map<string, number>
 }
 export default function EventCard({ entry, moveTo, author, category, date, timesMap }: EventCardProps) {
     
@@ -15,9 +15,9 @@ export default function EventCard({ entry, moveTo, author, category, date, times
     let ampm = format(date, 'a')
 
 
-    let d1 = timesMap.get('11:00 AM')
-    let d2 = timesMap.get('12:00 PM')
-    let d3 = timesMap.get(`${hour}:00 ${ampm}`)
+    let d1 = timesMap?.get('11:00 AM')
+    let d2 = timesMap?.get('12:00 PM')
+    let d3 = timesMap?.get(`${hour}:00 ${ampm}`)
    
     let diff, topPosition;
     if (d1 !== undefined && d2 !== undefined) {

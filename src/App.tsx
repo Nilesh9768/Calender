@@ -46,7 +46,7 @@ function App() {
 					filterEvents={filterEvents}
 				/>
 				<EVENTS events={events} />
-				<Summary />
+				<Summary events={events}/>
 			</div>
 
 		</div>

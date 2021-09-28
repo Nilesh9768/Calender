@@ -44,16 +44,6 @@ export default function EVENTS({ events}: props) {
 
         <div className='event-time-container'>
             
-            <div className='timeList-container' onScroll={setMap}>
-                {
-                    Array.from(timesMap.keys()).map((time, idx) => {
-
-                        return <div className='time-item' key={idx}>{time}</div>
-                    })
-
-                }
-            </div>
-
             <div className="event-container">
 
                 <div className='due-date-container'>
@@ -103,6 +93,15 @@ export default function EVENTS({ events}: props) {
                         })
                     }
                 </div>
+            </div>
+
+            <div className='timeList-container' onScroll={setMap}>
+                {
+                    Array.from(timesMap.keys()).map((time, idx) => {
+
+                        return <div className='time-item' key={idx}>{time}</div>
+                    })
+                }
             </div>
         </div>
 

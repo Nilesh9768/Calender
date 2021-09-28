@@ -4,11 +4,31 @@
     grid-template-columns: repeat(7,1fr);
 }
 
-.cell{
+.month-container{
+
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.month-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 700;
-    padding: 10px;
+    height: 40px;
+    padding: 1px 10px 5px 10px;
     cursor: pointer;
-    color: rgb(75, 74, 74);
+    color: rgba(0, 0, 77,0.8);
+}
+
+.cell{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-weight: 700;
+    height: 40px;
+    padding: 1px 10px 5px 10px;
+    cursor: pointer;
+    color: rgba(0, 0, 77,0.8);
     text-align: center;
 }
 
@@ -19,13 +39,13 @@
 }
 
 
-.current-date{
+.current-date,.current-month{
     color: #fff;
     background-color: #d9d9d9;
     border-radius: 3px;
 }
 
-.selected{
+.selected-month,.selected{
     color: #fff;
     background-color: rgb(51, 51, 255);
     border-radius: 3px;

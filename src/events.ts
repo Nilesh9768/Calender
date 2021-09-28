@@ -84,7 +84,23 @@ const eventsArray: eventsType[] = [
         entry: 'ML & DL',
         moveTo: 'Publish',
         category: 'release',
-        date: addDays(new Date().setHours(13,0,0),4),
+        date: addDays(new Date().setHours(11,0,0),4),
+        assignedBy:'Nilesh Yadav'
+    },
+    {
+        id:11,
+        entry: 'DL',
+        moveTo: 'Publish',
+        category: 'due-date',
+        date: addDays(new Date().setHours(12,0,0),4),
+        assignedBy:'Nilesh Yadav'
+    },
+    {
+        id:12,
+        entry: 'DSA',
+        moveTo: 'Publish',
+        category: 'due-date',
+        date: addDays(new Date().setHours(10,0,0),4),
         assignedBy:'Nilesh Yadav'
     }
 ]

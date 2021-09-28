@@ -11,6 +11,7 @@ import {
     addYears
 } from "date-fns"
 import './styles/Calender.css'
+import { startOfYear } from "date-fns/esm"
 
 export type CalenderProps = {
 
@@ -20,6 +21,7 @@ export default function Calender({ filterEvents, }: CalenderProps) {
 
     const [month, setMonth] = useState<Date>(new Date())
     const [year, setYear] = useState(new Date())
+    const [showMonthList,setShowMonthList] = useState(false)
 
     const decreaseMonth = () => {
 
@@ -39,11 +41,20 @@ export default function Calender({ filterEvents, }: CalenderProps) {
         setMonth(addMonths(month, 1))
 
     }
+    const showOrHide = () =>{
+        setShowMonthList(!showMonthList)
+    }
+    const setPickedMonth = (month : number) =>{
+        setMonth(addMonths(startOfYear(new Date()),month))
+        setShowMonthList(!showMonthList)
+    }
     return (
         <div className="calender-container">
+            {console.log(showMonthList)}
             <CalenderHeader
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
+                showOrHide = {showOrHide}
                 month={month}
                 year={year}
             />
@@ -52,6 +63,8 @@ export default function Calender({ filterEvents, }: CalenderProps) {
                 month={month}
                 year={year}
                 filterEvents={filterEvents}
+                showMonthList = {showMonthList}
+                setPickedMonth = {setPickedMonth}
             />
         </div>
     )

@@ -10,10 +10,16 @@
     display: flex;
 }
 
-.month-year p,icons{
+.month-year p,.icons{
     margin: 0;
     padding: 2px;
-    color: rgb(75, 74, 74);
+    color: rgba(0, 0, 77,0.7);
     font-weight: 700;
+    cursor: pointer;
+}
+
+.dropdown-icon{
+    font-size: 28px;
+    color: rgba(0, 0, 77,0.6);
 }
 

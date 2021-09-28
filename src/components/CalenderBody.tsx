@@ -1,12 +1,25 @@
 import { ReactNode, useState } from 'react'
-import { format, isEqual, isSameDay, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth } from 'date-fns'
+import { 
+    format, 
+    isEqual, 
+    isSameDay, 
+    startOfMonth,
+    startOfYear, 
+    endOfMonth, 
+    startOfWeek, 
+    endOfWeek, 
+    addDays, 
+    isSameMonth, 
+    addMonths } from 'date-fns'
 import './styles/CalenderBody.css'
 import { eventsArray } from '../events'
 
 type BodyProps = {
     month: Date,
     year: Date,
+    showMonthList: boolean,
     filterEvents: (date: Date) => void,
+    setPickedMonth : (month : number) => void
 }
 type objectType = {
     isDuePresent: boolean,
@@ -18,9 +31,9 @@ let dateMap = new Map<string, objectType>();
 const hasEvent = (date: Date): boolean => {
 
     for (let i = 0; i < eventsArray.length; i++) {
-        
+
         if (isSameDay(date, eventsArray[i].date)) {
-           
+
             const category = eventsArray[i].category;
             const thisDate: string = format(date, 'd/M/yyyy');
             const isDatePresent = dateMap.has(thisDate)
@@ -50,22 +63,41 @@ const hasEvent = (date: Date): boolean => {
     return dateMap.has(format(date, 'd/M/yyyy'));
 }
 
-const CalenderBody = ({ month, filterEvents }: BodyProps) => {
+const CalenderBody = ({ month, filterEvents, showMonthList,setPickedMonth }: BodyProps) => {
 
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+    const [selectedMonth, setSelectedMonth] = useState<Date>(new Date())
 
     let monthStart: Date = startOfMonth(month)
     let monthEnd: Date = endOfMonth(month)
     let startDate: Date = startOfWeek(monthStart)
     let endDate: Date = endOfWeek(monthEnd)
     let dates: ReactNode[] = []
+    let monthList: ReactNode[] = []
 
+    for (let i = 0; i < 12; i++) {
+
+        let month = addMonths(startOfYear(new Date()), i)
+        let currentMonthClass = isSameMonth(new Date(), month) ? 'month-list current-month' : 'month-list'
+        currentMonthClass += isSameMonth(month, selectedMonth) ? ' selected-month' : ''
+        monthList.push(
+            <div
+                className={currentMonthClass}
+                onClick = {() => {
+                    setPickedMonth(i)
+                    setSelectedMonth(month)
+                }}
+            >
+                {format(month, 'MMM')}
+            </div>
+        )
+    }
     for (let i: number = 0; i < parseInt(format(monthEnd, 'd'));) {
 
         if (isEqual(startDate, monthStart)) {
+
             let date: Date = addDays(monthStart, i);
-            let currentDateClass: string = isSameDay(Date.now(), date) ?
-                'cell current-date' : 'cell'
+            let currentDateClass: string = isSameDay(Date.now(), date) ? 'cell current-date' : 'cell'
             currentDateClass += isSameDay(date, selectedDate) ? ' selected' : ''
             dates.push(
                 <div
@@ -122,8 +154,11 @@ const CalenderBody = ({ month, filterEvents }: BodyProps) => {
     }
 
     return (
-        <div className='calender-body'>
-            {dates}
+
+        <div className={showMonthList ? 'month-container' : 'calender-body'}>
+            {
+                showMonthList ? monthList : dates
+            }
         </div>
     )
 }

@@ -28,8 +28,9 @@
 
     font-size: 30px;
     font-weight: 700;
-    color: rgb(75, 74, 74);
+    color: rgba(0, 0, 77,0.7);
 }
 .weekday{
-    color: rgb(187, 187, 187);
+    color: rgba(0, 0, 77,0.3);
+    /* color: rgb(187, 187, 187); */
 }
