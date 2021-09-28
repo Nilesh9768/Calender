@@ -20,7 +20,6 @@ export default function Summary({ events }: props) {
                 dueDateEvents.map(event => {
                     return (
                         <div className='summary-card' key={event.id}>
-                            <div className='time'>{format(event.date.getTime(), 'h:mm a')}</div>
                             <div className='card-element'><b>Entry:</b> {event.entry}</div>
                             <div className='card-element'><b>Move To:</b> {event.moveTo}</div>
                             <div className='card-element'><b>Assigned By:</b> {event.assignedBy}</div>
@@ -31,13 +30,3 @@ export default function Summary({ events }: props) {
         </div>
     )
 }
-
-
-// return <EventCard
-// entry={event.entry}
-// moveTo={event.moveTo}
-// author={event.assignedBy}
-// category={event.category}
-// key={event.id}
-// date={event.date}
-// />

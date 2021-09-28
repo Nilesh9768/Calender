@@ -9,7 +9,7 @@ type props = {
     events: eventsType[],
 }
 
-export default function EVENTS({ events}: props) {
+export default function EVENTS({ events }: props) {
 
     const [dueDateEvents, setDueDateEvents] = useState<eventsType[]>([]);
     const [contentPublishEvents, setContentPublishEvents] = useState<eventsType[]>([]);
@@ -43,20 +43,16 @@ export default function EVENTS({ events}: props) {
     return (
 
         <div className='event-time-container'>
-            
+
             <div className="event-container">
 
                 <div className='due-date-container'>
                     {
                         dueDateEvents.map(event => {
                             return <EventCard
-                                entry={event.entry}
-                                moveTo={event.moveTo}
-                                author={event.assignedBy}
-                                category={event.category}
                                 key={event.id}
-                                date={event.date}
                                 timesMap={timesMap}
+                                event={event}
                             />
                         })
                     }
@@ -66,13 +62,9 @@ export default function EVENTS({ events}: props) {
                     {
                         contentPublishEvents.map(event => {
                             return <EventCard
-                                entry={event.entry}
-                                moveTo={event.moveTo}
-                                author={event.assignedBy}
-                                category={event.category}
                                 key={event.id}
-                                date={event.date}
                                 timesMap={timesMap}
+                                event={event}
                             />
                         })
                     }
@@ -82,13 +74,9 @@ export default function EVENTS({ events}: props) {
                     {
                         releaseEvents.map(event => {
                             return <EventCard
-                                entry={event.entry}
-                                moveTo={event.moveTo}
-                                author={event.assignedBy}
-                                category={event.category}
                                 key={event.id}
-                                date={event.date}
                                 timesMap={timesMap}
+                                event={event}
                             />
                         })
                     }
