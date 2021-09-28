@@ -16,6 +16,7 @@ You will also see any lint errors in the console.
 
 Screenshots of Project:
 ![Screenshot (241)](https://user-images.githubusercontent.com/80756037/135033888-3bd79412-f177-4034-9188-004939ce76ab.png)
+![Screenshot (242)](https://user-images.githubusercontent.com/80756037/135034215-b86e8390-dbfe-43f7-984a-c85a92cb3eb6.png)
 
 ### `npm test`
 
